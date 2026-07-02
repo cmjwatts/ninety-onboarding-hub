@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ninety Onboarding Home Base</title>
+  <meta name="description" content="Your home base for getting set up on Ninety — what to build out, the free resources you already have, and a gentle first-30-days pace." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ice: #F7F8FB;
+      --mist: #F3F3F4;
+      --white: #FFFFFF;
+      --ink: #262626;
+      --gray: #58595B;
+      --slate: #8A8F9A;
+      --stone: #DDDFE7;
+      --blue: #2F8BAA;
+      --blue-deep: #006B8A;
+      --blue-wash: hsla(195, 57%, 43%, 0.08);
+      --blue-wash-2: hsla(195, 57%, 43%, 0.04);
+      --green: #5ABE79;
+      --green-deep: #3E9E5C;
+      --green-wash: hsla(140, 45%, 55%, 0.12);
+      --display: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --body: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --shadow: 0 1px 2px rgba(38,38,38,0.04), 0 4px 16px rgba(38,38,38,0.05);
+      --shadow-lift: 0 4px 10px rgba(38,38,38,0.06), 0 12px 32px rgba(47,139,170,0.10);
+      --radius: 14px;
+      --maxw: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--ice);
+      color: var(--gray);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--display);
+      color: var(--ink);
+      line-height: 1.2;
+      text-wrap: balance;
+      margin: 0;
+    }
+
+    a { color: var(--blue-deep); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    a:focus-visible, .btn:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    .eyebrow {
+      font-family: var(--display);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      margin: 0 0 12px;
+    }
+
+    /* ---------- Sticky jump nav ---------- */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247,248,251,0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--stone);
+    }
+    .topbar .wrap {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      min-height: 58px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--display);
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 17px;
+      letter-spacing: -0.01em;
+    }
+    .brand .mark {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: var(--ice);
+      display: grid; place-items: center;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: -0.03em;
+    }
+    .jump {
+      display: flex;
+      gap: 4px;
+      margin-left: auto;
+      flex-wrap: wrap;
+    }
+    .jump a {
+      font-family: var(--display);
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--gray);
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+    .jump a:hover { background: var(--blue-wash); color: var(--blue-deep); text-decoration: none; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 64px 0 44px; }
+    .hero .kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--display); font-weight: 600; font-size: 13px;
+      color: var(--blue-deep);
+      background: var(--blue-wash);
+      padding: 6px 14px; border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .hero h1 { font-size: clamp(34px, 5vw, 52px); font-weight: 700; letter-spacing: -0.02em; max-width: 16ch; }
+    .hero p.lead {
+      font-size: 19px;
+      max-width: 60ch;
+      margin: 20px 0 0;
+      color: var(--gray);
+    }
+    .hero .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+    .hero-video { margin-top: 40px; max-width: 720px; }
+    .hero-video iframe {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 1px solid var(--stone);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lift);
+      background: var(--ink);
+    }
+    .hero-video-cap {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: 13.5px;
+      color: var(--slate);
+      margin: 12px 0 0;
+    }
+    .watch-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--stone);
+    }
+    .watch-row a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--blue-deep);
+      background: var(--blue-wash);
+      padding: 8px 15px;
+      border-radius: 999px;
+      transition: background .12s ease, color .12s ease;
+    }
+    .watch-row a:hover { background: var(--blue); color: var(--white); text-decoration: none; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--display); font-weight: 600; font-size: 15px;
+      padding: 12px 22px; border-radius: 10px;
+      cursor: pointer; border: none;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .btn-primary { background: var(--blue); color: var(--white); box-shadow: 0 6px 18px rgba(47,139,170,0.28); }
+    .btn-primary:hover { background: var(--blue-deep); text-decoration: none; transform: translateY(-1px); }
+    .btn-ghost { background: var(--white); color: var(--ink); border: 1px solid var(--stone); }
+    .btn-ghost:hover { border-color: var(--blue); color: var(--blue-deep); text-decoration: none; }
+
+    /* ---------- Section scaffolding ---------- */
+    section { padding: 44px 0; scroll-margin-top: 72px; }
+    .section-head { max-width: 64ch; margin-bottom: 32px; }
+    .section-head h2 { font-size: clamp(26px, 3.2vw, 34px); font-weight: 700; letter-spacing: -0.01em; }
+    .section-head p { font-size: 17px; margin: 12px 0 0; }
+    .divider { height: 1px; background: var(--stone); border: 0; margin: 0; }
+
+    /* ---------- Groundwork / setup & config ---------- */
+    .config-card {
+      background: var(--white);
+      border: 1px solid var(--stone);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+    .config-card .step-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--display); font-weight: 600; font-size: 13px;
+      color: var(--blue-deep); background: var(--blue-wash);
+      padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
+    }
+    .config-card h3 { font-size: 23px; font-weight: 600; margin-bottom: 6px; }
+    .config-card > p { font-size: 15px; margin: 0 0 24px; max-width: 60ch; }
+    .config-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .config-item {
+      background: var(--ice);
+      border: 1px solid var(--stone);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .config-item .ci-icon {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--white); border: 1px solid var(--stone);
+      display: grid; place-items: center; margin-bottom: 12px; font-size: 17px;
+    }
+    .config-item h4 { font-size: 15.5px; font-weight: 600; margin-bottom: 4px; }
+    .config-item p { font-size: 13px; margin: 0; }
+
+    /* ---------- Tools to build out ---------- */
+    .build-band { background: var(--ink); color: var(--ice); border-radius: 20px; padding: 40px 32px; }
+    .build-band .section-head h2 { color: var(--white); }
+    .build-band .section-head p { color: var(--slate); }
+    .build-band .eyebrow { color: var(--green); }
+    .build-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+    .build-step {
+      display: flex; flex-direction: column;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 22px 18px;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .build-step:hover { transform: translateY(-2px); border-color: var(--green); background: rgba(255,255,255,0.08); text-decoration: none; }
+    .build-step .bs-icon { font-size: 22px; margin-bottom: 12px; }
+    .build-step h4 { color: var(--white); font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .build-step p { font-size: 13px; color: var(--slate); margin: 0 0 14px; line-height: 1.45; flex-grow: 1; }
+    .build-step .watch { color: var(--green); font-family: var(--display); font-weight: 600; font-size: 12.5px; }
+
+    /* ---------- Mature-later callout ---------- */
+    .later {
+      margin-top: 22px;
+      background: rgba(255,255,255,0.04);
+      border: 1px dashed rgba(255,255,255,0.18);
+      border-radius: 14px;
+      padding: 22px 24px;
+    }
+    .later h4 { color: var(--ice); font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .later p { color: var(--slate); font-size: 13.5px; margin: 0 0 14px; max-width: 70ch; }
+    .later-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .later-links a {
+      font-family: var(--display); font-weight: 500; font-size: 13px;
+      color: var(--ice);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      padding: 7px 14px; border-radius: 999px;
+    }
+    .later-links a:hover { background: var(--green); color: #123; border-color: var(--green); text-decoration: none; }
+
+    /* ---------- Free resources by type ---------- */
+    .free-band { background: linear-gradient(180deg, var(--white), var(--blue-wash-2)); border: 1px solid var(--stone); border-radius: 20px; padding: 40px 32px; }
+    .free-cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .free-cat { display: flex; flex-direction: column; gap: 14px; }
+    .cat-head { display: flex; align-items: center; gap: 12px; padding-bottom: 6px; }
+    .cat-badge {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: grid; place-items: center; flex-shrink: 0;
+    }
+    .cat-badge svg { width: 22px; height: 22px; }
+    .cat-badge.product { background: var(--blue-wash); color: var(--blue-deep); }
+    .cat-badge.event { background: hsla(28, 90%, 55%, 0.12); color: #C4711A; }
+    .cat-badge.video { background: hsla(140, 45%, 55%, 0.14); color: var(--green-deep); }
+    .cat-head .cat-name { font-family: var(--display); font-weight: 700; font-size: 16px; color: var(--ink); }
+    .cat-head .cat-kind { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.1em; font-size: 10.5px; color: var(--slate); font-weight: 600; }
+    .free-card {
+      background: var(--white);
+      border: 1px solid var(--stone);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex; flex-direction: column;
+      box-shadow: var(--shadow);
+      flex-grow: 1;
+    }
+    .free-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .free-card p { font-size: 13.5px; margin: 0 0 14px; flex-grow: 1; }
+    .free-card a.go, .free-card .inapp {
+      font-family: var(--display); font-weight: 600; font-size: 13px;
+    }
+    .free-card a.go { color: var(--blue-deep); }
+    .free-card .inapp { color: var(--slate); }
+
+    /* ---------- What good looks like ---------- */
+    .good-video { max-width: 840px; }
+    .good-video iframe {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 1px solid var(--stone);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lift);
+      background: var(--ink);
+    }
+    .good-video + .watch-row { margin-top: 18px; }
+
+    /* ---------- Help / Professional Services ---------- */
+    .help-band {
+      background: var(--ink);
+      color: var(--ice);
+      border-radius: 20px;
+      padding: 52px 44px;
+      text-align: center;
+    }
+    .help-band .eyebrow { color: var(--green); justify-content: center; }
+    .help-band h2 { color: var(--white); font-size: clamp(26px, 3.4vw, 34px); font-weight: 700; max-width: 22ch; margin: 0 auto; }
+    .help-band p { color: var(--slate); font-size: 17px; margin: 16px auto 0; max-width: 60ch; }
+    .help-band .cta-row { display: flex; justify-content: center; margin-top: 28px; }
+    .btn-green { background: var(--green); color: #123; }
+    .btn-green:hover { background: var(--green-deep); color: var(--white); text-decoration: none; transform: translateY(-1px); }
+
+    footer.foot {
+      text-align: center;
+      padding: 44px 0 60px;
+      color: var(--slate);
+      font-size: 13px;
+    }
+    footer.foot .tm { max-width: 70ch; margin: 0 auto 10px; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .config-grid { grid-template-columns: repeat(2, 1fr); }
+      .build-grid { grid-template-columns: repeat(2, 1fr); }
+      .free-cats { grid-template-columns: 1fr; }
+      .jump { display: none; }
+    }
+    @media (max-width: 560px) {
+      .config-grid, .build-grid { grid-template-columns: 1fr; }
+      .hero { padding: 44px 0 28px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand"><span class="mark">90</span> Onboarding Home Base</div>
+      <nav class="jump">
+        <a href="#start">Lay the Groundwork</a>
+        <a href="#build">Tools to Build Out</a>
+        <a href="#free">Free Resources</a>
+        <a href="#roadmap">What Good Looks Like</a>
+        <a href="#help">Get Help</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="kicker">👋 Everything you need to get up and running</span>
+      <h1>Welcome to Ninety. Let's get you set up.</h1>
+      <p class="lead">This is your home base for getting started on Ninety — the platform for companies running on EOS®. It walks you through what to set up, the tools to build out, and every free resource you already have access to. No need to go anywhere else. Start at the top, or jump to whatever you need.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#start">Start with the groundwork ↓</a>
+        <a class="btn btn-ghost" href="#build">See what to build out</a>
+      </div>
+      <div class="hero-video">
+        <iframe src="https://www.youtube-nocookie.com/embed/2Wlyj3D1Tz0" title="A Quick Tour of the Ninety Platform" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p class="hero-video-cap">▶ New here? Take the 2-minute tour of the platform first.</p>
+      </div>
+    </div>
+  </header>
+
+  <hr class="divider" />
+
+  <!-- LAY THE GROUNDWORK -->
+  <section id="start">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Lay the groundwork</p>
+        <h2>First, the setup and configuration</h2>
+        <p>Before anything else, get the basics in place. A few minutes here makes everything that follows smoother.</p>
+      </div>
+      <div class="config-card">
+        <span class="step-tag">✳️ Set up &amp; configuration</span>
+        <h3>Four things to square away first</h3>
+        <p>These are quick, and they set the stage for every tool you'll build out next.</p>
+        <div class="config-grid">
+          <div class="config-item">
+            <div class="ci-icon">👤</div>
+            <h4>Your profile</h4>
+            <p>Add your name, photo, and time zone so everything lands correctly.</p>
+          </div>
+          <div class="config-item">
+            <div class="ci-icon">🏢</div>
+            <h4>Your company</h4>
+            <p>Set your company name, branding, and language preferences.</p>
+          </div>
+          <div class="config-item">
+            <div class="ci-icon">👥</div>
+            <h4>Your teams</h4>
+            <p>Start with your leadership team. Most tools are team-scoped, so this comes early.</p>
+          </div>
+          <div class="config-item">
+            <div class="ci-icon">✉️</div>
+            <h4>Invite your people</h4>
+            <p>Add users and set their roles so the right people have access.</p>
+          </div>
+        </div>
+        <div class="watch-row">
+          <a href="https://www.youtube.com/watch?v=MAog_I1UQZI&list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">▶ Watch: What to Set Up First</a>
+          <a href="https://www.youtube.com/watch?v=ZhAaI9FwSFo&list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">▶ Watch: Notifications, Integrations &amp; Reminders</a>
+          <a href="https://www.youtube.com/watch?v=pFjAHuCUCU4&list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">▶ Watch: My 90, Your Personal Command Center</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS TO BUILD OUT -->
+  <section id="build">
+    <div class="wrap">
+      <div class="build-band">
+        <div class="section-head">
+          <p class="eyebrow">The core of it</p>
+          <h2>Tools to build out</h2>
+          <p>Don't overthink the order — what matters is getting each of these entered. Once they're in, you've got the full picture of your business in one place. Click any tool to watch how it works.</p>
+        </div>
+        <div class="build-grid">
+          <a class="build-step" href="https://www.youtube.com/watch?v=X3Ix__OdkDg&list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">
+            <div class="bs-icon">🧭</div>
+            <h4>V/TO — Vision</h4>
+            <p>Document where you're headed and what you stand for, so everyone's aligned.</p>
+            <span class="watch">▶ Watch: Documenting Your Vision</span>
+          </a>
+          <a class="build-step" href="https://www.youtube.com/watch?v=JKCwCCsBADs&list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">
+            <div class="bs-icon">▦</div>
+            <h4>Accountability Chart</h4>
+            <p>Lay out seats, roles, and responsibilities — who owns what.</p>
+            <span class="watch">▶ Watch: Building Your First Chart</span>
+          </a>
+          <a class="build-step" href="https://www.youtube.com/watch?v=huSvlRt1eP4&list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">
+            <div class="bs-icon">📊</div>
+            <h4>Scorecard</h4>
+            <p>Add the measurables that give you a weekly pulse on the business.</p>
+            <span class="watch">▶ Watch: Creating Your Scorecard</span>
+          </a>
+          <a class="build-step" href="https://www.youtube.com/watch?v=W9sOYJ6YkNU&list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">
+            <div class="bs-icon">⛰️</div>
+            <h4>Rocks</h4>
+            <p>Set your 3–7 most important priorities for the quarter.</p>
+            <span class="watch">▶ Watch: Rocks That Get Done</span>
+          </a>
+          <a class="build-step" href="https://www.ninety.io/eos/issues" target="_blank" rel="noopener">
+            <div class="bs-icon">💡</div>
+            <h4>Issues List</h4>
+            <p>Capture what's getting in the way so you can solve it as a team.</p>
+            <span class="watch">→ See how Issues work</span>
+          </a>
+        </div>
+
+        <div class="later">
+          <h4>Later, as you mature →</h4>
+          <p>You don't need these on day one. But once your teams are running the fundamentals, these are great to layer in.</p>
+          <div class="later-links">
+            <a href="https://www.ninety.io/eos/feedback" target="_blank" rel="noopener">1-on-1s &amp; Feedback</a>
+            <a href="https://www.ninety.io/eos/meetings" target="_blank" rel="noopener">Quarterly Discussions</a>
+            <a href="https://www.ninety.io/eos/vto" target="_blank" rel="noopener">Department Visions</a>
+            <a href="https://www.ninety.io/features/knowledge-portal" target="_blank" rel="noopener">Knowledge Portal</a>
+            <a href="https://www.youtube.com/watch?v=obZLGeapDN0&list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">▶ Rock Visibility Across the Company</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE RESOURCES BY TYPE -->
+  <section id="free">
+    <div class="wrap">
+      <div class="free-band">
+        <div class="section-head">
+          <p class="eyebrow">Included at no cost</p>
+          <h2>Free help you already have access to</h2>
+          <p>You don't have to figure Ninety out alone. Here's the free support available to you, grouped by what kind of thing it is.</p>
+        </div>
+        <div class="free-cats">
+
+          <!-- IN THE PRODUCT -->
+          <div class="free-cat">
+            <div class="cat-head">
+              <div class="cat-badge product" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20"/><circle cx="5.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+              </div>
+              <div>
+                <div class="cat-kind">In the product</div>
+                <div class="cat-name">Built right in</div>
+              </div>
+            </div>
+            <div class="free-card">
+              <h4>Maz, your AI companion</h4>
+              <p>An in-app AI guide that answers questions, walks you through setup, and helps you draft Rocks. Turn it on from the Getting Started card.</p>
+              <span class="inapp">→ Look for Maz inside Ninety</span>
+            </div>
+            <div class="free-card">
+              <h4>In-app chat support</h4>
+              <p>Real humans in the chat bubble, bottom-right, usually replying in under 5 minutes during business hours.</p>
+              <span class="inapp">→ Click the chat bubble in Ninety</span>
+            </div>
+          </div>
+
+          <!-- LIVE EVENTS -->
+          <div class="free-cat">
+            <div class="cat-head">
+              <div class="cat-badge event" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              </div>
+              <div>
+                <div class="cat-kind">Live events</div>
+                <div class="cat-name">Join in real time</div>
+              </div>
+            </div>
+            <div class="free-card">
+              <h4>Weekly webinars</h4>
+              <p>Ninety 101 and topic deep-dives, rotating every week. A live walkthrough of the tools and how to get the most from them.</p>
+              <a class="go" href="https://www.ninety.io/eos/live-learning" target="_blank" rel="noopener">See the schedule →</a>
+            </div>
+            <div class="free-card">
+              <h4>Weekly office hours</h4>
+              <p>Open Q&amp;A with the Client Success team. Bring whatever you're stuck on and get answers live.</p>
+              <a class="go" href="https://www.ninety.io/eos/live-learning" target="_blank" rel="noopener">Find the next session →</a>
+            </div>
+          </div>
+
+          <!-- VIDEOS -->
+          <div class="free-cat">
+            <div class="cat-head">
+              <div class="cat-badge video" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M10 9l5 3-5 3V9z" fill="currentColor" stroke="none"/></svg>
+              </div>
+              <div>
+                <div class="cat-kind">Videos</div>
+                <div class="cat-name">Watch anytime</div>
+              </div>
+            </div>
+            <div class="free-card">
+              <h4>The "Setting Up Ninety" video series</h4>
+              <p>Eleven short walkthroughs covering setup from first login through your first 30 days — the same videos linked throughout this page, in one playlist.</p>
+              <a class="go" href="https://www.youtube.com/playlist?list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">Watch the playlist →</a>
+            </div>
+            <div class="free-card">
+              <h4>Company rollout webinar</h4>
+              <p>A recorded session on activating Ninety across your whole company, plus an action plan to take with you.</p>
+              <a class="go" href="https://www.ninety.io/rollout-webinar" target="_blank" rel="noopener">Watch the webinar →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT GOOD LOOKS LIKE -->
+  <section id="roadmap">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Where this is headed</p>
+        <h2>What "good" looks like</h2>
+        <p>Once your tools are entered and you're running a weekly meeting, here's how it should feel — teams prepared, data updated before the meeting, and Issues actually getting solved. Aim for "80% strong," not perfect.</p>
+      </div>
+      <div class="good-video">
+        <iframe src="https://www.youtube-nocookie.com/embed/1m52MKqZ76o" title="What Good Looks Like After 30 Days" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="watch-row" style="border-top: none; padding-top: 0;">
+        <a href="https://www.youtube.com/watch?v=f5KI1OHdA-E&list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">▶ Watch: How to Run a Level 10 Meeting™</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HELP / PROFESSIONAL SERVICES -->
+  <section id="help">
+    <div class="wrap">
+      <div class="help-band">
+        <p class="eyebrow">Want a hand?</p>
+        <h2>Rather have an expert roll this out with you?</h2>
+        <p>Self-service works great for a lot of teams. But if you'd like someone to set up your tools alongside you, train your Champion, and get your teams aligned to the weekly and quarterly rhythms — that's exactly what Professional Services is for.</p>
+        <div class="cta-row">
+          <a class="btn btn-green" href="https://www.ninety.io/professional-services" target="_blank" rel="noopener">Explore Professional Services →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p class="tm">Ninety is the platform for companies running on EOS®. EOS®, V/TO®, and Level 10 Meeting™ are trademarks of EOS Worldwide, LLC. Ninety is officially licensed by EOS Worldwide.</p>
+      <p>Your onboarding home base · Questions? Reach us anytime at <a href="mailto:helpful@ninety.io">helpful@ninety.io</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
