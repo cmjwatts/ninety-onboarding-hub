@@ -144,7 +144,13 @@
       color: var(--gray);
     }
     .hero .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
-    .hero-video { margin-top: 40px; max-width: 720px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-video { margin-top: 0; }
     .hero-video iframe {
       display: block;
       width: 100%;
@@ -258,6 +264,32 @@
     .build-step p { font-size: 13px; color: var(--slate); margin: 0 0 14px; line-height: 1.45; flex-grow: 1; }
     .build-step .watch { color: var(--green); font-family: var(--display); font-weight: 600; font-size: 12.5px; }
 
+    /* ---------- L10 goal callout ---------- */
+    .goal-callout {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+      background: linear-gradient(120deg, hsla(140, 45%, 55%, 0.14), hsla(195, 57%, 43%, 0.12));
+      border: 1px solid hsla(140, 45%, 55%, 0.4);
+      border-radius: 14px;
+      padding: 26px 28px;
+    }
+    .goal-eyebrow {
+      font-family: var(--display);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      margin: 0 0 8px;
+    }
+    .goal-callout h3 { color: var(--white); font-size: 21px; font-weight: 700; margin-bottom: 8px; }
+    .goal-copy p:not(.goal-eyebrow) { color: var(--slate); font-size: 14px; margin: 0; max-width: 58ch; }
+    .goal-callout .btn { flex-shrink: 0; }
+
     /* ---------- Mature-later callout ---------- */
     .later {
       margin-top: 22px;
@@ -311,7 +343,12 @@
     .free-card .inapp { color: var(--slate); }
 
     /* ---------- What good looks like ---------- */
-    .good-video { max-width: 840px; }
+    .good-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 48px;
+      align-items: center;
+    }
     .good-video iframe {
       display: block;
       width: 100%;
@@ -321,7 +358,6 @@
       box-shadow: var(--shadow-lift);
       background: var(--ink);
     }
-    .good-video + .watch-row { margin-top: 18px; }
 
     /* ---------- Help / Professional Services ---------- */
     .help-band {
@@ -351,6 +387,7 @@
       .config-grid { grid-template-columns: repeat(2, 1fr); }
       .build-grid { grid-template-columns: repeat(2, 1fr); }
       .free-cats { grid-template-columns: 1fr; }
+      .hero-grid, .good-grid { grid-template-columns: 1fr; gap: 28px; }
       .jump { display: none; }
     }
     @media (max-width: 560px) {
@@ -380,13 +417,15 @@
   </div>
 
   <header class="hero">
-    <div class="wrap">
-      <span class="kicker">👋 Everything you need to get up and running</span>
-      <h1>Welcome to Ninety. Let's get you set up.</h1>
-      <p class="lead">This is your home base for getting started on Ninety — the platform for companies running on EOS®. It walks you through what to set up, the tools to build out, and every free resource you already have access to. No need to go anywhere else. Start at the top, or jump to whatever you need.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#start">Start with the groundwork ↓</a>
-        <a class="btn btn-ghost" href="#build">See what to build out</a>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="kicker">👋 Everything you need to get up and running</span>
+        <h1>Welcome to Ninety. Let's get you set up.</h1>
+        <p class="lead">This is your home base for getting started on Ninety — the platform for companies running on EOS®. It walks you through what to set up, the tools to build out, and every free resource you already have access to. No need to go anywhere else. Start at the top, or jump to whatever you need.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#start">Start with the groundwork ↓</a>
+          <a class="btn btn-ghost" href="#build">See what to build out</a>
+        </div>
       </div>
       <div class="hero-video">
         <iframe src="https://www.youtube-nocookie.com/embed/2Wlyj3D1Tz0" title="A Quick Tour of the Ninety Platform" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -482,15 +521,22 @@
           </a>
         </div>
 
+        <div class="goal-callout">
+          <div class="goal-copy">
+            <p class="goal-eyebrow">🎯 The goal of all this setup</p>
+            <h3>Run your first Level 10 Meeting™</h3>
+            <p>Everything above feeds your weekly meeting — the Scorecard gets reviewed, Rocks get checked, and Issues get solved. Once these tools are entered, you're ready to run one.</p>
+          </div>
+          <a class="btn btn-green" href="https://www.youtube.com/watch?v=f5KI1OHdA-E&list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">▶ Watch: How to Run a Level 10 Meeting™</a>
+        </div>
+
         <div class="later">
           <h4>Later, as you mature →</h4>
           <p>You don't need these on day one. But once your teams are running the fundamentals, these are great to layer in.</p>
           <div class="later-links">
-            <a href="https://www.ninety.io/eos/feedback" target="_blank" rel="noopener">1-on-1s &amp; Feedback</a>
-            <a href="https://www.ninety.io/eos/meetings" target="_blank" rel="noopener">Quarterly Discussions</a>
-            <a href="https://www.ninety.io/eos/vto" target="_blank" rel="noopener">Department Visions</a>
+            <a href="https://help.eos.ninety.io/en/articles/13653795-the-people-analyzer" target="_blank" rel="noopener">The People Analyzer®</a>
+            <a href="https://help.eos.ninety.io/en/articles/13653770-quarterly-and-annual-reviews" target="_blank" rel="noopener">Quarterly Discussions</a>
             <a href="https://www.ninety.io/features/knowledge-portal" target="_blank" rel="noopener">Knowledge Portal</a>
-            <a href="https://www.youtube.com/watch?v=obZLGeapDN0&list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">▶ Rock Visibility Across the Company</a>
           </div>
         </div>
       </div>
@@ -545,12 +591,12 @@
             <div class="free-card">
               <h4>Weekly webinars</h4>
               <p>Ninety 101 and topic deep-dives, rotating every week. A live walkthrough of the tools and how to get the most from them.</p>
-              <a class="go" href="https://www.ninety.io/eos/live-learning" target="_blank" rel="noopener">See the schedule →</a>
+              <a class="go" href="https://www.ninety.io/events" target="_blank" rel="noopener">See the schedule →</a>
             </div>
             <div class="free-card">
               <h4>Weekly office hours</h4>
               <p>Open Q&amp;A with the Client Success team. Bring whatever you're stuck on and get answers live.</p>
-              <a class="go" href="https://www.ninety.io/eos/live-learning" target="_blank" rel="noopener">Find the next session →</a>
+              <a class="go" href="https://ninety-io.zoom.us/meeting/register/bWRVkwNBSPW3_Eurtax-vw#/registration" target="_blank" rel="noopener">Register for office hours →</a>
             </div>
           </div>
 
@@ -570,11 +616,6 @@
               <p>Eleven short walkthroughs covering setup from first login through your first 30 days — the same videos linked throughout this page, in one playlist.</p>
               <a class="go" href="https://www.youtube.com/playlist?list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">Watch the playlist →</a>
             </div>
-            <div class="free-card">
-              <h4>Company rollout webinar</h4>
-              <p>A recorded session on activating Ninety across your whole company, plus an action plan to take with you.</p>
-              <a class="go" href="https://www.ninety.io/rollout-webinar" target="_blank" rel="noopener">Watch the webinar →</a>
-            </div>
           </div>
 
         </div>
@@ -584,17 +625,14 @@
 
   <!-- WHAT GOOD LOOKS LIKE -->
   <section id="roadmap">
-    <div class="wrap">
-      <div class="section-head">
+    <div class="wrap good-grid">
+      <div class="section-head" style="margin-bottom: 0;">
         <p class="eyebrow">Where this is headed</p>
         <h2>What "good" looks like</h2>
         <p>Once your tools are entered and you're running a weekly meeting, here's how it should feel — teams prepared, data updated before the meeting, and Issues actually getting solved. Aim for "80% strong," not perfect.</p>
       </div>
       <div class="good-video">
         <iframe src="https://www.youtube-nocookie.com/embed/1m52MKqZ76o" title="What Good Looks Like After 30 Days" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="watch-row" style="border-top: none; padding-top: 0;">
-        <a href="https://www.youtube.com/watch?v=f5KI1OHdA-E&list=PLyosClLlrPSsq7qS3g2K6g9omOu9Ymj43" target="_blank" rel="noopener">▶ Watch: How to Run a Level 10 Meeting™</a>
       </div>
     </div>
   </section>
